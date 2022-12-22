@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
         if(_isStart&&_timer>=0)
         {
             _timer -= Time.deltaTime;
-            _timerText.text = $"Žc‚è{_timer:00.00}•b";
+            _timerText.text = $"{_timer:00.00}";
         }
         else if(_timer<=0)
         {
