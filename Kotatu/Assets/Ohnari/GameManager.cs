@@ -54,19 +54,17 @@ public class GameManager : MonoBehaviour
         {
             _timer -= Time.deltaTime;
             _timerText.text = $"{_timer:00.00}";
-            if (_currentThermo >= 100)
-            {
-                _isWinPlayer = true;
-            }
+            _isWinKotatsu = true;
         }
         else if (_timer <= 0)
         {
             _timerText.gameObject.SetActive(false);
             _isStart = false;
-            if(_currentThermo < 100)
-            {
-                _isWinKotatsu = true;
-            }
+        }
+        if(_currentThermo>=100)
+        {
+            _isWinPlayer = true;
+            _isStart = false;
         }
         _timed += Time.deltaTime;
         if (_timed > _span)
@@ -75,7 +73,6 @@ public class GameManager : MonoBehaviour
             Debug.Log("a");
             _timed = 0f;
         }
-        
     }
     /// <summary>カウントダウンのコルーチン</summary>
     public IEnumerator CountDown()
