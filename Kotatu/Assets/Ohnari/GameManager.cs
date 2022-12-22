@@ -5,19 +5,31 @@ using UnityEngine.UI;
 using DG.Tweening;
 public class GameManager : MonoBehaviour
 {
-    [SerializeField,Tooltip("カウントダウンのテキスト")]
-    Text _countText = default;
+    [SerializeField,Tooltip("カウントダウンのイメージ")]
+    Image _countIma = default;
+    [SerializeField]
+    Image _startIma = default;
     [SerializeField,Header("タイマー関連"), Tooltip("タイマーテキスト")]
     Text _timerText = default;
     [SerializeField]
     float _timer = 30.0f;
+    [SerializeField, Header("数字のspriteとStartのSprite")]
+    Sprite[] _numberIma = default;
     /// <summary>タイマーのプロパティ</summary>
     public float Timer { get => _timer; set => _timer = value; }
     /// <summary>スタートフラグ</summary>
     bool _isStart;
+    /// <summary>勝利フラグ</summary>
+    bool _isWinPlayer, _isWinKotatsu;
+    private void Awake()
+    {
+        _countIma.gameObject.SetActive(false);
+        _startIma.gameObject.SetActive(false);
+    }
     void Start()
     {
         StartCoroutine(CountDown());
+        
     }
     void Update()
     {        
@@ -37,16 +49,23 @@ public class GameManager : MonoBehaviour
     {
         _isStart = false;
         yield return new WaitForSeconds(1.0f);
-        _countText.text = "3";
+        _countIma.gameObject.SetActive(true);
+        _countIma.sprite = _numberIma[2];
         yield return new WaitForSeconds(1.0f);
-        _countText.text = "2";
+        _countIma.sprite = _numberIma[1];
         yield return new WaitForSeconds(1.0f);
-        _countText.text = "1";
+        _countIma.sprite = _numberIma[0];
         yield return new WaitForSeconds(1.0f);
-        _countText.text = "Start";
+        _startIma.gameObject.SetActive(true);
+        _countIma.gameObject.SetActive(false);
+        _startIma.sprite = _numberIma[3];
         yield return new WaitForSeconds(1.0f);
-        Destroy(_countText);
+        _startIma.gameObject.SetActive(false);
         _isStart = true;
         yield return null;
+    }
+    /// <summary>ゲームの勝敗を判定する関数</summary>
+    public void Judge()
+    {
     }
 }
