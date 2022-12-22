@@ -6,19 +6,24 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] Vector2 _playerMove;
     Rigidbody2D _playerRigidbody;
+    [SerializeField]
+    GameManager _gameManager = default;
     void Start()
     {
         _playerRigidbody = GetComponent<Rigidbody2D>();
     }
     void Update()
     {
-        if(Input.GetKey(KeyCode.A))
+        if (_gameManager.IsStart)
         {
-            _playerRigidbody.AddForce(-_playerMove);
-        }
-        else if(Input.GetKey(KeyCode.D))
-        {
-            _playerRigidbody.AddForce(_playerMove);
+            if (Input.GetKey(KeyCode.A))
+            {
+                _playerRigidbody.AddForce(-_playerMove);
+            }
+            else if (Input.GetKey(KeyCode.D))
+            {
+                _playerRigidbody.AddForce(_playerMove);
+            }
         }
         //if (Input.GetKeyUp(KeyCode.A))
         //{

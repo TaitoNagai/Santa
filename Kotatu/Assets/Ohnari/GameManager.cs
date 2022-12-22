@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     Image _countIma = default;
     [SerializeField]
     Image _startIma = default;
+    [SerializeField]
+    Image _finishIma = default;
     [SerializeField, Header("タイマー関連"), Tooltip("タイマーテキスト")]
     Text _timerText = default;
     [SerializeField]
@@ -37,8 +39,17 @@ public class GameManager : MonoBehaviour
     bool _isWinPlayer, _isWinKotatsu;
     public bool IsWinPlayer { get => _isWinPlayer; set => _isWinPlayer = value; }
     public bool IsWinKotatsu { get => _isWinKotatsu; set => _isWinKotatsu = value; }
+
     private void Awake()
     {
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         _countIma.gameObject.SetActive(false);
         _startIma.gameObject.SetActive(false);
     }
@@ -54,25 +65,29 @@ public class GameManager : MonoBehaviour
         {
             _timer -= Time.deltaTime;
             _timerText.text = $"{_timer:00.00}";
-            _isWinKotatsu = true;
         }
         else if (_timer <= 0)
         {
             _timerText.gameObject.SetActive(false);
             _isStart = false;
+            _finishIma.gameObject.SetActive(true);
+            _isWinKotatsu = true;
         }
         if(_currentThermo>=100)
         {
             _isWinPlayer = true;
             _isStart = false;
         }
-        _timed += Time.deltaTime;
-        if (_timed > _span)
+        if (_isStart)
         {
-            DownThermo();
-            Debug.Log("a");
-            _timed = 0f;
+            _timed += Time.deltaTime;
+            if (_timed > _span)
+            {
+                DownThermo();
+                _timed = 0f;
+            }
         }
+        Debug.Log(_currentThermo);
     }
     /// <summary>カウントダウンのコルーチン</summary>
     public IEnumerator CountDown()
@@ -99,10 +114,9 @@ public class GameManager : MonoBehaviour
     {
     }
 
-    public void CurrentThermo(float num)
+    static public void CurrentThermo(float num)
     {
         Instance._currentThermo += num;
-        hpdown(_currentThermo, _maxThermo);
     }
 
     public void hpdown(float current, int max)
@@ -114,5 +128,9 @@ public class GameManager : MonoBehaviour
     {
         _currentThermo = _currentThermo - _downThermo;
         hpdown(_currentThermo, _maxThermo);
+        if(_currentThermo<=0)
+        {
+            _currentThermo = 0;
+        }
     }
 }
