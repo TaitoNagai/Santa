@@ -11,14 +11,14 @@ public class ResultJudge : MonoBehaviour
     [SerializeField] string _name = null;
     private void Start()
     {
-        //if(_gameManager.)
-        //{
-        //    _resultPanel[0].SetActive(true);
-        //}
-        //else if(_gameManager.)
-        //{
-        //    _resultPanel[1].SetActive(true);
-        //}
+        if (_gameManager.IsWinPlayer)
+        {
+            _resultPanel[0].SetActive(true);
+        }
+        else if (_gameManager.IsWinKotatsu)
+        {
+            _resultPanel[1].SetActive(true);
+        }
     }
 
     private void Update()

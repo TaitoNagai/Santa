@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
     public bool IsStart { get => _isStart; set => _isStart = value; }
     /// <summary>勝利フラグ</summary>
     bool _isWinPlayer, _isWinKotatsu;
+    public bool IsWinPlayer { get => _isWinPlayer; set => _isWinPlayer = value; }
+    public bool IsWinKotatsu { get => _isWinKotatsu; set => _isWinKotatsu = value; }
     private void Awake()
     {
         _countIma.gameObject.SetActive(false);
@@ -52,13 +54,20 @@ public class GameManager : MonoBehaviour
         {
             _timer -= Time.deltaTime;
             _timerText.text = $"{_timer:00.00}";
+            if (_currentThermo >= 100)
+            {
+                _isWinPlayer = true;
+            }
         }
         else if (_timer <= 0)
         {
             _timerText.gameObject.SetActive(false);
             _isStart = false;
+            if(_currentThermo < 100)
+            {
+                _isWinKotatsu = true;
+            }
         }
-
         _timed += Time.deltaTime;
         if (_timed > _span)
         {
@@ -66,6 +75,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("a");
             _timed = 0f;
         }
+        
     }
     /// <summary>カウントダウンのコルーチン</summary>
     public IEnumerator CountDown()
