@@ -20,13 +20,13 @@ public class PlayerController : MonoBehaviour
         {
             _playerRigidbody.AddForce(_playerMove);
         }
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            _playerRigidbody.velocity = Vector2.zero;
-        }
-        else if (Input.GetKeyUp(KeyCode.D))
-        {
-            _playerRigidbody.velocity = Vector2.zero;
-        }
+        //if (Input.GetKeyUp(KeyCode.A))
+        //{
+        //    _playerRigidbody.velocity = Vector2.zero;
+        //}
+        //else if (Input.GetKeyUp(KeyCode.D))
+        //{
+        //    _playerRigidbody.velocity = Vector2.zero;
+        //}
     }
 }
