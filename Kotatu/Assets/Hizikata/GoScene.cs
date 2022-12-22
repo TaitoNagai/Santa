@@ -10,6 +10,6 @@ public class GoScene : MonoBehaviour
 
     public void OnButtomDown()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene(_name);
     }
 }
