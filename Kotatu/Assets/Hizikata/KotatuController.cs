@@ -22,5 +22,14 @@ public class KotatuController : MonoBehaviour
         {
             _rb.AddForce(_power);
         }
+        if (Input.GetKeyUp(KeyCode.LeftArrow))
+        {
+            _rb.velocity = Vector2.zero;
+        }
+
+        if (Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            _rb.velocity = Vector2.zero;
+        }
     }
 }
