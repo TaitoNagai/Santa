@@ -26,7 +26,7 @@ public class ThermoController : MonoBehaviour
     void Update()
     {
         //hpsystemのスクリプトのhpdown関数に2つの数値を送る
-        _ondkeinaka.GetComponent<Thermo>().hpdown(_currentThermo, _maxThermo);
+        //_ondkeinaka.GetComponent<Thermo>().hpdown(_currentThermo, _maxThermo);
     }
 
     //fixedupdateは一定に呼ばれるので持続的に使う処理に良いらしい
@@ -36,7 +36,7 @@ public class ThermoController : MonoBehaviour
         if (0 <= _currentThermo)
         {
             //maxhpから秒数（×10）を引いた数がcurrenthp
-            _currentThermo = _currentThermo + Time.time * _upThermo;
+            _currentThermo = _currentThermo + Time.deltaTime * _upThermo;
         }
     }
 }

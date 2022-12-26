@@ -8,11 +8,23 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D _playerRigidbody;
     [SerializeField]
     GameManager _gameManager = default;
+    [SerializeField]
+    GameObject _target = default;
+    [SerializeField]
+    UpThermo _upthermo = default;
+    [SerializeField,Header("ターゲットとの距離")]
+    float dir;
+    float _timed;
+    [SerializeField] float _span;
     void Start()
     {
         _playerRigidbody = GetComponent<Rigidbody2D>();
     }
     void Update()
+    {
+        
+    }
+    private void FixedUpdate()
     {
         if (_gameManager.IsStart)
         {
@@ -24,14 +36,18 @@ public class PlayerController : MonoBehaviour
             {
                 _playerRigidbody.AddForce(_playerMove);
             }
+            dir = Vector3.Distance(_target.transform.position, this.transform.position);
+            Debug.Log(dir);
+            if (dir < 1.5)
+            {
+                _timed += Time.deltaTime;
+                if (_timed > _span)
+                {
+                    _gameManager.CurrentThermo(_upthermo.AddThermo);
+                    //Debug.Log(_upthermo.AddThermo);
+                    
+                }
+            }
         }
-        //if (Input.GetKeyUp(KeyCode.A))
-        //{
-        //    _playerRigidbody.velocity = Vector2.zero;
-        //}
-        //else if (Input.GetKeyUp(KeyCode.D))
-        //{
-        //    _playerRigidbody.velocity = Vector2.zero;
-        //}
     }
 }

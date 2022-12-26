@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         _ima = _image.GetComponent<Image>();
 
     }
-    void Update()
+    void FixedUpdate()
     {
         if (_isStart && _timer >= 0)
         {
@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
                 _timed = 0f;
             }
         }
-        Debug.Log(_currentThermo);
+        //Debug.Log(_currentThermo);
     }
     /// <summary>カウントダウンのコルーチン</summary>
     public IEnumerator CountDown()
@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
     {
     }
 
-    static public void CurrentThermo(float num)
+    public void CurrentThermo(float num)
     {
         Instance._currentThermo += num;
     }
