@@ -414,7 +414,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269677956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.46, y: -4.04, z: 0}
+  m_LocalPosition: {x: -3.03, y: -4.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -866,6 +866,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerMove: {x: 1.5, y: 0}
   _gameManager: {fileID: 1470018198}
+  _target: {fileID: 269677956}
+  _upthermo: {fileID: 2040766914}
+  dir: 0
+  _span: 0.5
 --- !u!50 &363637453
 Rigidbody2D:
   serializedVersion: 4
@@ -947,7 +951,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363637451}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.55, y: -2.73, z: 0}
+  m_LocalPosition: {x: 0, y: -2.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1730,7 +1734,7 @@ Transform:
   m_GameObject: {fileID: 920066216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.85, z: 1}
+  m_LocalScale: {x: 1.15, y: 0.85, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2818,8 +2822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tagName: Player
   _addThermo: 15
-  _span: 0.5
-  _isStart: 0
+  _gameManager: {fileID: 1470018198}
 --- !u!1 &2110600779
 GameObject:
   m_ObjectHideFlags: 0
