@@ -15,17 +15,22 @@ public class ResultJudge : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKey(KeyCode.KeypadEnter))
-        {
-            SceneManager.LoadScene(_name);
-        }
+        
         if (_gameManager.IsWinPlayer)
         {
             _resultPanel[0].SetActive(true);
+            if (Input.GetKey(KeyCode.Return))
+            {
+                SceneManager.LoadScene(_name);
+            }
         }
         else if (_gameManager.IsWinKotatsu)
         {
             _resultPanel[1].SetActive(true);
+            if (Input.GetKey(KeyCode.Return))
+            {
+                SceneManager.LoadScene(_name);
+            }
         }
     }
 }
