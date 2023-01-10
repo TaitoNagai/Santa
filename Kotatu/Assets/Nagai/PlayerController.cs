@@ -6,6 +6,9 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] Vector2 _playerMove;
     Rigidbody2D _playerRigidbody;
+    SpriteRenderer _sp;
+    [SerializeField]
+    Sprite[] _playerSprite;
     [SerializeField]
     GameManager _gameManager = default;
     [SerializeField]
@@ -16,9 +19,12 @@ public class PlayerController : MonoBehaviour
     float dir;
     float _timed;
     [SerializeField] float _span;
+    [SerializeField]
+    float _perfect, _normal;
     void Start()
     {
         _playerRigidbody = GetComponent<Rigidbody2D>();
+        _sp = GetComponent<SpriteRenderer>();
     }
     void Update()
     {
@@ -36,7 +42,7 @@ public class PlayerController : MonoBehaviour
             {
                 _playerRigidbody.AddForce(_playerMove);
             }
-            dir = Vector3.Distance(_target.transform.position, this.transform.position);
+            /*dir = Vector3.Distance(_target.transform.position, this.transform.position);
             Debug.Log(dir);
             if (dir < 1.5)
             {
@@ -47,7 +53,20 @@ public class PlayerController : MonoBehaviour
                     //Debug.Log(_upthermo.AddThermo);
                     
                 }
-            }
+            }*/
+        }
+
+        if(_gameManager.CurrentNum >= _perfect)
+        {
+            _sp.sprite = _playerSprite[0];
+        }
+        else if(_gameManager.CurrentNum >= _normal)
+        {
+            _sp.sprite = _playerSprite[1];
+        }
+        else
+        {
+            _sp.sprite = _playerSprite[2];
         }
     }
 }

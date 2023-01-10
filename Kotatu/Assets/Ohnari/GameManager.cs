@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
     public bool IsWinPlayer { get => _isWinPlayer; set => _isWinPlayer = value; }
     public bool IsWinKotatsu { get => _isWinKotatsu; set => _isWinKotatsu = value; }
 
+    public float CurrentNum { get => _currentThermo; set => _currentThermo = value; }
+
     private void Awake()
     {
         if (_instance == null)
@@ -85,6 +87,7 @@ public class GameManager : MonoBehaviour
             {
                 DownThermo();
                 _timed = 0f;
+                Debug.Log(_currentThermo);
             }
         }
         //Debug.Log(_currentThermo);
@@ -117,6 +120,7 @@ public class GameManager : MonoBehaviour
     public void CurrentThermo(float num)
     {
         Instance._currentThermo += num;
+        _ima.fillAmount = _currentThermo / _maxThermo;
     }
 
     public void hpdown(float current, int max)
