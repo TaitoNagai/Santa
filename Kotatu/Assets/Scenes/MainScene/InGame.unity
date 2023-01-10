@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 269677959}
   - component: {fileID: 269677960}
   - component: {fileID: 269677961}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Kotatsu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -608,7 +608,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &354053365
 AudioSource:
   m_ObjectHideFlags: 0
@@ -845,7 +845,7 @@ GameObject:
   - component: {fileID: 363637453}
   - component: {fileID: 363637452}
   - component: {fileID: 363637456}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -871,7 +871,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8786bc04fbb383549b7eae1be637e11e, type: 3}
   _gameManager: {fileID: 1470018198}
   _target: {fileID: 269677956}
-  _upthermo: {fileID: 2040766914}
   dir: 0
   _span: 0.5
   _perfect: 80
@@ -1105,7 +1104,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 2.22}
+  m_Offset: {x: 0, y: 2.37}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2063,7 +2062,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

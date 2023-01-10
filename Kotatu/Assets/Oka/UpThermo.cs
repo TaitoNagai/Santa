@@ -18,16 +18,18 @@ public class UpThermo : MonoBehaviour
 
     private void Update()
     {
-        _timed += Time.deltaTime;
+        
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        _timed += Time.deltaTime;
         if (_timed > _span)
         {
             if (collision.gameObject.tag == _tagName)
             {
                 _gameManager.CurrentThermo(AddThermo);
+                Debug.Log(collision.gameObject.tag);
             }
             _timed = 0f;
         }

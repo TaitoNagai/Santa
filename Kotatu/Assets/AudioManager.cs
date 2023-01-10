@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] AudioSource[]_audio = default;
+    [SerializeField] AudioSource[]_bgmAudio = default;
     [SerializeField] GameManager _gameManager = default;
     void Start()
     {
@@ -16,8 +16,8 @@ public class AudioManager : MonoBehaviour
     {
         if(_gameManager.IsWinKotatsu||_gameManager.IsWinPlayer)
         {
-            _audio[0].Stop();
-            _audio[1].Play();
+            _bgmAudio[0].enabled = false;
+            _bgmAudio[1].enabled = true;
         }
     }
 }
