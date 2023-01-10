@@ -8,6 +8,28 @@ public class UpThermo : MonoBehaviour
     [SerializeField] string _tagName;
     [SerializeField]
     public float _addThermo;
-    [SerializeField] GameManager _gameManager = default;
+    float _timed;
+    [SerializeField] float _span;
+    [SerializeField]
+    bool _isStart;
+    [SerializeField]
+    GameManager _gameManager;
     public float AddThermo { get => _addThermo; set => _addThermo = value; }
+
+    private void Update()
+    {
+        _timed += Time.deltaTime;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (_timed > _span)
+        {
+            if (collision.gameObject.tag == _tagName)
+            {
+                _gameManager.CurrentThermo(AddThermo);
+            }
+            _timed = 0f;
+        }
+    }
 }

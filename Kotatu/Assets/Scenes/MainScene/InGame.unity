@@ -865,11 +865,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerMove: {x: 1.5, y: 0}
+  _playerSprite:
+  - {fileID: 21300000, guid: e768c73881003c340a0ab30ead497840, type: 3}
+  - {fileID: 21300000, guid: 8049d4ce6a9965745a0cc3fc2efe2743, type: 3}
+  - {fileID: 21300000, guid: 8786bc04fbb383549b7eae1be637e11e, type: 3}
   _gameManager: {fileID: 1470018198}
   _target: {fileID: 269677956}
   _upthermo: {fileID: 2040766914}
   dir: 0
   _span: 0.5
+  _perfect: 80
+  _normal: 50
 --- !u!50 &363637453
 Rigidbody2D:
   serializedVersion: 4
@@ -1079,7 +1085,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 545013424}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.76, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1435,7 +1441,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8325951622295112376, guid: 8c2e4d4e77fca8a48b5dd94ddc3fee0e, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8325951622295112376, guid: 8c2e4d4e77fca8a48b5dd94ddc3fee0e, type: 3}
       propertyPath: _downThermo
@@ -2375,7 +2381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90bb213b99e6ec2448ddd98247480895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _downThermo: 10
+  _downThermo: 5
   _maxThermo: 100
   _image: {fileID: 1648075499}
   _countIma: {fileID: 1281623167}
@@ -2785,7 +2791,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040766911}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2821,7 +2827,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tagName: Player
-  _addThermo: 15
+  _addThermo: 5
+  _span: 1
+  _isStart: 0
   _gameManager: {fileID: 1470018198}
 --- !u!1 &2110600779
 GameObject:
