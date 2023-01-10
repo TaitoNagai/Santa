@@ -2388,7 +2388,7 @@ MonoBehaviour:
   _startIma: {fileID: 581704077}
   _finishIma: {fileID: 1865593457}
   _timerText: {fileID: 939249018}
-  _timer: 5
+  _timer: 30
   _numberIma:
   - {fileID: 21300000, guid: 30424f52178f4eb46880dcdea9f94bf2, type: 3}
   - {fileID: 21300000, guid: e8a0f11e72de2a549aaa6a88ce79384c, type: 3}
